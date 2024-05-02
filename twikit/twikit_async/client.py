@@ -776,7 +776,7 @@ class Client:
 
         if wait_for_completion:
             while True:
-                state = await self.check_media_status(media_id)
+                state = await self.check_media_status(media_id, is_long_video)
                 processing_info = state['processing_info']
                 if 'error' in processing_info:
                     raise InvalidMedia(processing_info['error'].get('message'))
